@@ -1,0 +1,6 @@
+-plugin.geckorcp:\
+	aQute.bnd.repository.maven.pom.provider.BndPomRepository;\
+        name="Gecko Equinox RCP";\
+        releaseUrls="https://devel.data-in-motion.biz/nexus/repository/dim-release/,https://repo.maven.apache.org/maven2/";\
+        snapshotUrls=https://devel.data-in-motion.biz/nexus/repository/dim-snapshot/;\
+        revision="org.gecko.bnd.equinox:org.gecko.bnd.eclipse.index:1.0.4"

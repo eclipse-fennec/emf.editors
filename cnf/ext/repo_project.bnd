@@ -1,0 +1,4 @@
+-plugin.eclipse.2019.09: \
+		aQute.bnd.repository.osgi.OSGiRepository;\
+		name=Eclipse_2019.09;\
+		locations=https://devel.data-in-motion.biz/repository/eclipse-2019-09/plugins/index.xml
