@@ -1,12 +1,16 @@
 /**
- * Copyright (c) 2002-2007 IBM Corporation and others.
- * All rights reserved.   This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v2.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v20.html
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved. 
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
  *
+ * SPDX-License-Identifier: EPL-2.0
+ * 
  * Contributors:
- *   IBM - Initial API and implementation
+ *     IBM - Initial API and implementation
+ *     Data In Motion - override to enable modifications
  */
 package org.eclipse.fennec.emf.editor.provider.resource;
 
