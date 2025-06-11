@@ -9,6 +9,7 @@
 # Activate baselining
 dimcBaselining: true
 github-project: org.eclipse.fennec.emf.editors
+github-group: eclipse-fennec
 base-version: 1.0.0
 
 # Maven Central Group-Id
@@ -19,15 +20,6 @@ base-version: 1.0.0
 
 -jpms-module-info:
 
--plugin.2.Central: \
-    aQute.bnd.repository.maven.provider.MavenBndRepository; \
-        snapshotUrl="https://oss.sonatype.org/content/repositories/snapshots/"; \
-        releaseUrl=https://repo.maven.apache.org/maven2/; \
-        index=${.}/central.mvn; \
-        readOnly=true; \
-        poll.time=-1; \
-        name="Central"
-        
 -plugin.0.Local: \
 	aQute.bnd.deployer.repository.LocalIndexedRepo; \
 		name = Local; \
@@ -39,5 +31,16 @@ base-version: 1.0.0
 		name = Temp; \
 		pretty = true; \
 		local = ${build}/cache/temp
+
+-plugin.2.Central: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+        snapshotUrl="https://oss.sonatype.org/content/repositories/snapshots/"; \
+        releaseUrl=https://repo.maven.apache.org/maven2/; \
+        index=${.}/central.mvn; \
+        readOnly=true; \
+        poll.time=-1; \
+        name="Central"
+
+
 -plugin.p2: \
     aQute.p2.export.P2Exporter

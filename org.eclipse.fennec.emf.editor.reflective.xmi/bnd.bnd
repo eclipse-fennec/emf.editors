@@ -37,4 +37,4 @@
 -includeresource: plugin.xml
 Bundle-SymbolicName: ${p};singleton:=true	
 
--export: release.bndrun;type=p2;name=p2.zip;features="editors.bndrun"
+-export: p2updatesite.bndrun;type=p2;name=p2updatesite.zip;features="editors.bndrun"

@@ -1,0 +1,5 @@
+Bundle-Vendor: Eclipse Foundation
+-categories: \
+    editors; \
+        label=Eclipse Fennec EMF Editors; \
+        description=Custom EMF Editors

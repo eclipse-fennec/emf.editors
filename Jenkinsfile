@@ -9,13 +9,20 @@ pipeline  {
     }
 
     stages {
+        stage('Prepare Gradle') {
+          steps {
+            echo "I am building app on branch: ${env.GIT_BRANCH}"
+            sh "chmod +x ./gradlew"
+          }
+        }
+        
         stage('Main branch release') {
             when { 
                 branch 'main' 
             }
             steps {
                 echo "I am building on ${env.BRANCH_NAME}"
-                sh "./gradlew clean build release -Drelease.dir=$JENKINS_HOME/repo.gecko/release/org.eclipse.fennec.emf.editors --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
+                sh "./gradlew clean build --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
             }
         }
         stage('Snapshot branch release') {
@@ -24,12 +31,13 @@ pipeline  {
             }
             steps  {
                 echo "I am building on ${env.JOB_NAME}"
-                sh "./gradlew clean release --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
-                sh "mkdir -p $JENKINS_HOME/repo.gecko/snapshot/org.eclipse.fennec.emf.editors"
-                sh "rm -rf $JENKINS_HOME/repo.gecko/snapshot/org.eclipse.fennec.emf.editors/*"
-                sh "cp -r cnf/release/* $JENKINS_HOME/repo.gecko/snapshot/org.eclipse.fennec.emf.editors"
+                sh "./gradlew clean build --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
+            }
+        }
+        stage('Archive Results') {
+            steps {
+                archiveArtifacts 'org.eclipse.fennec.emf.editor.reflective.xmi/generated/p2updatesite.zip'
             }
         }
     }
-
 }
