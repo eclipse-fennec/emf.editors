@@ -16,10 +16,8 @@ The project consists of two main OSGi bundles:
 
 - **FennecEcoreEditor** (`org.eclipse.fennec.emf.editor.FennecEcoreEditor`) - Main editor class extending EcoreEditor with custom adapter factories and resource handling
 - **ResourceItemProviderAdapterFactory** - Custom adapter factory for resource providers
-- **ResourceItemProvider** - Enhanced item provider for resource objects with context menu support for adding/removing EObjects
+- **ResourceItemProvider** - Enhanced item provider for resource objects with context menu support for adding EObjects
 - **ResourceCommand** - Command for adding EObjects to resources (supports single and multiple objects)
-- **ResourceRemoveCommand** - Command for removing EObjects from resources with undo/redo support
-- **ResourceChildItemProvider** - Item provider for EObjects that are direct children of resources
 - **ResourcePropertyDescriptor** - Custom property descriptors for resource editing
 
 ## Build System

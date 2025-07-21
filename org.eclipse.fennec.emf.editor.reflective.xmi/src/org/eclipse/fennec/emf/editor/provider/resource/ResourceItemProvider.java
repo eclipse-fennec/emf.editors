@@ -209,12 +209,16 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 			.filter(r -> !r.getContents().isEmpty())
 			.map(r -> r.getContents().get(0))
 			.filter(EPackage.class::isInstance)
+			.filter(Predicate.not(toScan::contains))
 			.map(EPackage.class::cast)
 			.forEach(toScan::add);
 		List<EClass> eClasses = toScan.stream() 
 				.map(EPackage::getEClassifiers)
-				.flatMap(List::stream).filter(EClass.class::isInstance).map(EClass.class::cast)
-				.filter(Predicate.not(EClass::isInterface)).filter(Predicate.not(EClass::isAbstract))
+				.flatMap(List::stream)
+				.filter(EClass.class::isInstance)
+				.map(EClass.class::cast)
+				.filter(Predicate.not(EClass::isInterface))
+				.filter(Predicate.not(EClass::isAbstract))
 				.collect(Collectors.toList());
 		return eClasses;
 	}
