@@ -3,7 +3,8 @@
 #	DIMC Github-Configuration - gecko-dimc
 #	Jacoco Support - gecko-jacoco
 -library: \
-	geckoDIMC
+	geckoDIMC,\
+	geckoBndEclipse
 	
 # Needed because we enabled library 'gecko-dimc'
 # Activate baselining
@@ -20,27 +21,27 @@ base-version: 1.0.0
 
 -jpms-module-info:
 
--plugin.0.Local: \
-	aQute.bnd.deployer.repository.LocalIndexedRepo; \
-		name = Local; \
-		pretty = true; \
-		local = ${build}/local
+-plugin.0.Local: aQute.bnd.deployer.repository.LocalIndexedRepo;\
+		name                =Local;\
+		pretty              =true;\
+		local               ='N:/git/eclipse/fennec/emf.editors/cnf/local'
 
--plugin.1.Temp: \
-	aQute.bnd.deployer.repository.LocalIndexedRepo; \
-		name = Temp; \
-		pretty = true; \
-		local = ${build}/cache/temp
+-plugin.1.Temp: aQute.bnd.deployer.repository.LocalIndexedRepo;\
+		name                =Temp;\
+		pretty              =true;\
+		local               ='N:/git/eclipse/fennec/emf.editors/cnf/cache/temp'
 
--plugin.2.Central: \
-    aQute.bnd.repository.maven.provider.MavenBndRepository; \
-        snapshotUrl="https://oss.sonatype.org/content/repositories/snapshots/"; \
-        releaseUrl=https://repo.maven.apache.org/maven2/; \
-        index=${.}/central.mvn; \
-        readOnly=true; \
-        poll.time=-1; \
-        name="Central"
+-plugin.2.Central: aQute.bnd.repository.maven.provider.MavenBndRepository;\
+		snapshotUrl         ='https://central.sonatype.com/repository/maven-snapshots/';\
+		releaseUrl          ='https://repo.maven.apache.org/maven2/';\
+		index               ='${.}/central.mvn';\
+		readOnly            =true;\
+		'poll.time'         =-1;\
+		name                =Central
 
+-plugin.eclipse.2019.09: \
+        aQute.bnd.repository.osgi.OSGiRepository;\
+        name=Eclipse_2019.09;\
+        locations=https://devel.data-in-motion.biz/repository/eclipse-2019-09/plugins/index.xml
 
--plugin.p2: \
-    aQute.p2.export.P2Exporter
+-plugin.p2: aQute.p2.export.P2Exporter

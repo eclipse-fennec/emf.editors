@@ -197,13 +197,22 @@ public class ResourceItemProvider extends ItemProviderAdapter implements IEditin
 
 	@Override
 	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-		List<EClass> eClasses = ((Resource) object)
-				.getResourceSet()
-				.getResources()
-				.stream()
-				.filter(r -> !r.getContents().isEmpty())
-				.map(r -> r.getContents().get(0))
-				.filter(EPackage.class::isInstance).map(EPackage.class::cast).map(EPackage::getEClassifiers)
+		List<EPackage> toScan = new ArrayList<>();
+		Resource resource = ((Resource) object);
+		resource.getContents().stream()
+			.map(EObject::eClass)
+			.map(EClass::getEPackage)
+			.filter(Predicate.not(toScan::contains))
+			.forEach(toScan::add);
+		resource.getResourceSet().getResources()
+		.stream()
+			.filter(r -> !r.getContents().isEmpty())
+			.map(r -> r.getContents().get(0))
+			.filter(EPackage.class::isInstance)
+			.map(EPackage.class::cast)
+			.forEach(toScan::add);
+		List<EClass> eClasses = toScan.stream() 
+				.map(EPackage::getEClassifiers)
 				.flatMap(List::stream).filter(EClass.class::isInstance).map(EClass.class::cast)
 				.filter(Predicate.not(EClass::isInterface)).filter(Predicate.not(EClass::isAbstract))
 				.collect(Collectors.toList());

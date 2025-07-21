@@ -1,0 +1,5 @@
+-include: testlaunch.bndrun
+
+-buildpath: \
+	${-runbundles},\
+	org.eclipse.osgi;version='3.20'

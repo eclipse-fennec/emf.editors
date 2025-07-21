@@ -93,7 +93,6 @@ public class ResourceItemProviderAdapterFactory
   @Override
   public Adapter createAdapter(Notifier target)
   {
-	  System.out.println("Adapter for target " + target);
     if (target instanceof Resource)
     {
       return createResourceAdapter();

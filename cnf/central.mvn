@@ -115,5 +115,6 @@ org.slf4j:slf4j-api:1.7.36
 org.geckoprojects.bnd:org.gecko.bnd.dimc.library:1.6.0
 org.geckoprojects.bnd:org.gecko.bnd.jacoco.library:1.6.0
 org.geckoprojects.bnd:org.gecko.bnd.osgitest.library:1.6.0
+org.geckoprojects.bnd.eclipse:org.gecko.bnd.eclipse.library:1.2.1-SNAPSHOT
 
 org.bndtools:org.bndtools.templates.osgi:7.0.0

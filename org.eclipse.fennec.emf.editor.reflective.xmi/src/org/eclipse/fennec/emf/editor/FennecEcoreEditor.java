@@ -48,6 +48,7 @@ public class FennecEcoreEditor extends EcoreEditor{
 		super();
 	}
 	
+	
 	@Override
 	protected void initializeEditingDomain() {
 		 // Create an adapter factory that yields item providers.

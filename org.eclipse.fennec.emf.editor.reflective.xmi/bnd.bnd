@@ -32,7 +32,9 @@
 	org.eclipse.emf.common.ui,\
 	org.eclipse.emf.common,\
 	org.eclipse.emf.ecore,\
-	org.eclipse.emf.ecore.edit
+	org.eclipse.emf.ecore.edit,\
+	org.gecko.eclipse.compatibility,\
+	org.gecko.eclipse.compatibility.equinox.config
 
 -includeresource: plugin.xml
 Bundle-SymbolicName: ${p};singleton:=true	
