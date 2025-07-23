@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(jar:*)"
+      "Bash(jar:*)",
+      "Bash(gh run view:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
