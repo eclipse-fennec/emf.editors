@@ -8,8 +8,8 @@ Bundle-License:  \
         link="https://opensource.org/licenses/EPL-2.0"
 Bundle-Category: editors
 
--runfw: org.eclipse.osgi;version='[3.20.0.v20240509-1421,3.20.0.v20240509-1421]'
--runee: JavaSE-17
+-runfw: org.eclipse.osgi;version='[3.24.300,3.24.301)'
+-runee: JavaSE-21
 -runbundles: org.eclipse.fennec.emf.editor.reflective.xmi;version=snapshot
 
 -runrequires: bnd.identity;id='org.eclipse.fennec.emf.editor.reflective.xmi'

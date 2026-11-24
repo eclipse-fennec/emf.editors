@@ -45,18 +45,7 @@ org.apache.felix:org.apache.felix.framework.security:2.8.3
 org.apache.felix:org.apache.felix.inventory:2.0.0
 org.apache.felix:org.apache.felix.log:1.3.0
 
-org.eclipse.platform:org.eclipse.core.contenttype:3.9.400
-org.eclipse.platform:org.eclipse.core.expressions:3.9.400
-org.eclipse.platform:org.eclipse.core.filesystem:1.10.400
-org.eclipse.platform:org.eclipse.core.jobs:3.15.300
-org.eclipse.platform:org.eclipse.core.resources:3.20.200
-org.eclipse.platform:org.eclipse.core.runtime:3.31.100
-org.eclipse.platform:org.eclipse.equinox.common:3.19.100
-org.eclipse.platform:org.eclipse.equinox.registry:3.12.100
-org.eclipse.platform:org.eclipse.equinox.preferences:3.11.100
 org.eclipse.jdt:org.eclipse.jdt.core:3.38.0
-org.eclipse.platform:org.eclipse.osgi:3.20.0
-org.eclipse.platform:org.eclipse.text:3.14.100
 org.osgi:org.osgi.annotation.versioning:1.1.2
 org.osgi:org.osgi.annotation.bundle:2.0.0
 org.osgi:org.osgi.dto:1.1.1
@@ -117,3 +106,29 @@ org.geckoprojects.bnd:org.gecko.bnd.jacoco.library:1.6.0
 org.geckoprojects.bnd:org.gecko.bnd.osgitest.library:1.6.0
 
 org.bndtools:org.bndtools.templates.osgi:7.0.0
+
+# Eclipse 4.41 (2026-09) bundles needed beyond the curated RCP set of the Gecko bnd
+# Eclipse library (cnf/eclipse-rcp.mvn): org.eclipse.ui.ide and the IDE workbench
+# application for the build and the test launch
+# (org.eclipse.fennec.emf.editor.reflective.xmi.launch/testlaunch.bndrun).
+org.eclipse.platform:org.eclipse.compare:3.12.200
+org.eclipse.platform:org.eclipse.e4.ui.ide:3.18.0
+org.eclipse.platform:org.eclipse.equinox.p2.artifact.repository:1.5.1000
+org.eclipse.platform:org.eclipse.equinox.p2.core:2.13.300
+org.eclipse.platform:org.eclipse.equinox.p2.engine:2.11.200
+org.eclipse.platform:org.eclipse.equinox.p2.metadata.repository:1.5.800
+org.eclipse.platform:org.eclipse.equinox.p2.metadata:2.9.800
+org.eclipse.platform:org.eclipse.equinox.p2.repository:2.9.800
+org.eclipse.platform:org.eclipse.ltk.core.refactoring:3.16.0
+org.eclipse.platform:org.eclipse.ltk.ui.refactoring:3.14.200
+org.eclipse.platform:org.eclipse.osgi.compatibility.state:1.3.0
+org.eclipse.platform:org.eclipse.team.core:3.10.1100
+org.eclipse.platform:org.eclipse.team.ui:3.12.200
+org.eclipse.platform:org.eclipse.ui.ide.application:1.6.200
+org.eclipse.platform:org.eclipse.ui.ide:3.23.200
+org.eclipse.platform:org.eclipse.ui.navigator.resources:3.10.100
+# their third-party dependencies
+org.bouncycastle:bcpg-jdk18on:1.87
+org.bouncycastle:bcprov-jdk18on:1.87
+org.bouncycastle:bcutil-jdk18on:1.87
+org.tukaani:xz:1.12

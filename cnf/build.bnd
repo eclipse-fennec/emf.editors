@@ -28,28 +28,34 @@ base-version: 1.0.0
 		'poll.time'         =-1;\
 		name                =Central
 
-# Content of the Gecko bnd Eclipse library 1.2.1 (formerly -library geckoBndEclipse), inlined:
-# its 1.2.1-SNAPSHOT artifacts have expired from the Central snapshot repository the library
-# points to, and are only left on the DIM Nexus snapshot repository.
+# Content of the Gecko bnd Eclipse library 2.0.0-SNAPSHOT (formerly -library geckoBndEclipse),
+# inlined: the library's template lists a further, non-Central snapshot repository first;
+# here snapshots come from the Central snapshot repository only.
+# Index files copied from the library: cnf/eclipse-rcp.mvn, cnf/bnd-eclipse.mvn.
+# Curated Eclipse 4.41 (2026-09) RCP platform from Maven Central.
 -plugin.bnd-Eclipse:\
-	aQute.bnd.repository.osgi.OSGiRepository;\
-		name="Eclipse 2020-06";\
-		locations="https://bndtools.jfrog.io/bndtools/bnd-build/eclipse/4.16/index.xml.gz";\
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+		releaseUrl=https://repo.maven.apache.org/maven2/; \
+		index=${.}/eclipse-rcp.mvn; \
+		readOnly=true; \
 		poll.time=-1;\
-		cache="${workspace}/cnf/cache/stable/Eclipse-2020-06"
+		name="Eclipse 4.41 RCP"
 
 -plugin.bnd.eclipse.central: \
 	aQute.bnd.repository.maven.provider.MavenBndRepository; \
-		snapshotUrl=https://devel.data-in-motion.biz/nexus/repository/dim-snapshot/; \
+		snapshotUrl=https://central.sonatype.com/repository/maven-snapshots/; \
 		releaseUrl=https://repo.maven.apache.org/maven2/; \
 		index=${.}/bnd-eclipse.mvn; \
 		readOnly=true; \
 		poll.time=-1;\
-		name="Bnd Eclipse"
+		name="Bnd Eclipse Central"
 
--plugin.eclipse.2019.09: \
-        aQute.bnd.repository.osgi.OSGiRepository;\
-        name=Eclipse_2019.09;\
-        locations=https://devel.data-in-motion.biz/repository/eclipse-2019-09/plugins/index.xml
+# EMF UI bundles (org.eclipse.emf.common.ui, .edit.ui, .ecore.editor) are not on Maven
+# Central: EMF 2.47.0 release update site, the EMF release matching Eclipse 4.41.
+-plugin.emf.p2: \
+	aQute.bnd.repository.p2.provider.P2Repository;\
+		name="EMF 2.47.0";\
+		url="https://download.eclipse.org/modeling/emf/emf/builds/release/2.47.0";\
+		poll.time=-1
 
 -plugin.p2: aQute.p2.export.P2Exporter
