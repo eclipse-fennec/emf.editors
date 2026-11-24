@@ -30,13 +30,13 @@ artifacts; the release update site is produced from `main` by Jenkins
   Linux and Windows.
 * **Matrix:**
   * OS: `ubuntu-latest`, `windows-latest`
-  * Java: `17` (Temurin)
+  * Java: `21` (Temurin; Eclipse 4.41 requires Java 21)
   * UI tests run under `xvfb-run --auto-servernum` on Linux (the matrix
     `runner` value wraps the command, so SWT-based tests have a virtual
     display).
 * **Steps:** checkout → Gradle wrapper validation → set up JDK with Gradle
   cache → `./gradlew build` → upload test reports as artifacts named
-  `JDK17_<os>-test-reports`.
+  `JDK21_<os>-test-reports`.
 * **Secrets used:** none.
 
 A green run on both OSes is the gating signal for review.

@@ -2,4 +2,4 @@
 
 -buildpath: \
 	${-runbundles},\
-	org.eclipse.osgi;version='3.20'
+	org.eclipse.osgi;version='3.24'
