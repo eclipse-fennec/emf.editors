@@ -13,3 +13,9 @@ Bundle-Category: editors
 -runbundles: org.eclipse.fennec.emf.editor.reflective.xmi;version=snapshot
 
 -runrequires: bnd.identity;id='org.eclipse.fennec.emf.editor.reflective.xmi'
+
+# SBOM for `./gradlew sbom`: this feature is the content of the p2 update site
+# (p2updatesite.bndrun only references it). The exporter is included only once it has been
+# fetched (see cnf/sbom/plugin.bnd); resolve, launch and the p2 export ignore both lines.
+-include: ${if;${isfile;${workspace}/cnf/cache/sbom-exporter/org.gecko.bnd.sbom.jar};${workspace}/cnf/sbom/plugin.bnd}
+-sbom: level=medium, format=cyclonedx

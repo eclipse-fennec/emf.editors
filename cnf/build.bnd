@@ -3,8 +3,7 @@
 #	DIMC Github-Configuration - gecko-dimc
 #	Jacoco Support - gecko-jacoco
 -library: \
-	geckoDIMC,\
-	geckoBndEclipse
+	geckoDIMC
 	
 # Needed because we enabled library 'gecko-dimc'
 # Activate baselining
@@ -28,6 +27,25 @@ base-version: 1.0.0
 		readOnly            =true;\
 		'poll.time'         =-1;\
 		name                =Central
+
+# Content of the Gecko bnd Eclipse library 1.2.1 (formerly -library geckoBndEclipse), inlined:
+# its 1.2.1-SNAPSHOT artifacts have expired from the Central snapshot repository the library
+# points to, and are only left on the DIM Nexus snapshot repository.
+-plugin.bnd-Eclipse:\
+	aQute.bnd.repository.osgi.OSGiRepository;\
+		name="Eclipse 2020-06";\
+		locations="https://bndtools.jfrog.io/bndtools/bnd-build/eclipse/4.16/index.xml.gz";\
+		poll.time=-1;\
+		cache="${workspace}/cnf/cache/stable/Eclipse-2020-06"
+
+-plugin.bnd.eclipse.central: \
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+		snapshotUrl=https://devel.data-in-motion.biz/nexus/repository/dim-snapshot/; \
+		releaseUrl=https://repo.maven.apache.org/maven2/; \
+		index=${.}/bnd-eclipse.mvn; \
+		readOnly=true; \
+		poll.time=-1;\
+		name="Bnd Eclipse"
 
 -plugin.eclipse.2019.09: \
         aQute.bnd.repository.osgi.OSGiRepository;\
